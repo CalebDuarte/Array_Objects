@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Literals</title>
+</head>
+<body>
+  <div class="container" id="content">
+      <!-- content will display here -->
+  </div>
+
+  <script>
+    let content = document.getElementById('content');
+    let html = '';
+
+    html += `
+    <div clas="container">
+      <h1> My Favorite Hobbies </h1>
+      <p> I enjoy spending my free time doing activites that help me relax and grow as a person. </p>
+
+      <ol>
+        <li>Reading books </li>
+        <li>Playing guitar </li>
+        <li>Hiking in nature </li>
+        <li>Photography </li>
+        <li>Cooking new recipes </li>
+      </ol>
+    </div>
+    `;
+    content.innerHTML = html;
+  </script>
+</body>
+</html>
