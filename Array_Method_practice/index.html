@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System - Search Directory</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>🔍 Filter Employees</h2>
+           
+            <div class="filter-group">
+                <h3>Array Methods</h3>
+                <button class="filter-button" onclick="question1()">Q1: includes() - Check Marketing exists</button>
+                <button class="filter-button" onclick="question2()">Q2: indexOf() - Find David Kim</button>
+                <button class="filter-button" onclick="question3()">Q3: find() - First Marketing employee</button>
+                <button class="filter-button" onclick="question4()">Q4: findIndex() - Find ID 104</button>
+                <button class="filter-button" onclick="question5()">Q5: some() - Any > 7 years exp?</button>
+                <button class="filter-button" onclick="question6()">Q6: every() - All Eng remote?</button>
+                <button class="filter-button" onclick="question7()">Q7: filter() - Remote & > $80k</button>
+                <button class="filter-button" onclick="question8()">Q8: map() - Name & Email only</button>
+                <button class="filter-button" onclick="question9()">Q9: join() - Unique departments</button>
+                <button class="filter-button" onclick="question10()">Q10: concat() - Add new hires</button>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Bonus Challenges</h3>
+                <button class="filter-button" onclick="bonus1()">Bonus 1: JavaScript developers</button>
+                <button class="filter-button" onclick="bonus2()">Bonus 2: Remote 4+ years?</button>
+                <button class="filter-button" onclick="bonus3()">Bonus 3: Unique skills list</button>
+                <button class="filter-button" onclick="bonus4()">Bonus 4: Engineering total salary</button>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Quick Filters</h3>
+                <button class="filter-button" onclick="showAllEmployees()" style="background: #2196f3; font-weight: bold;">
+                    📋 Show All Employees
+                </button>
+            </div>
+
+
+        </aside>
+
+
+        <div class="container">
+            <h1>🏢 Employee Management System </h1>
+            <h2> Search Directory</h2>
+           
+            <div class="filter-info" id="filterInfo">
+                <strong>Welcome!</strong> Select a filter from the sidebar to view employees
+            </div>
+           
+            <div class="employees-grid" id="employeesGrid"></div>
+         </div>
+
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
