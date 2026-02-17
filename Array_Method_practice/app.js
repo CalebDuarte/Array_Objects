@@ -79,10 +79,6 @@ const employees = [
   }
 ];
 
-// ---------------- SIMPLE HELPERS ----------------
-function clearGrid() {
-  document.getElementById("employeesGrid").innerHTML = "";
-}
 
 function updateFilterInfo(text) {
   document.getElementById("filterInfo").innerHTML = `<strong>Showing:</strong> ${text}`;
@@ -103,7 +99,6 @@ function showWelcome() {
   updateFilterInfo("Welcome");
 }
 
-// ---------------- SHOW ALL ----------------
 function showAllEmployees() {
   clearGrid();
   const grid = document.getElementById("employeesGrid");
@@ -129,11 +124,9 @@ function showAllEmployees() {
   updateFilterInfo(`All Employees (${employees.length})`);
 }
 
-// ---------------- QUESTIONS ----------------
 
 // Q1: includes()
 function question1() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const departments = employees.map(function(emp) {
@@ -159,7 +152,6 @@ function question1() {
 
 // Q2: indexOf()
 function question2() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const names = employees.map(function(emp) {
@@ -177,20 +169,18 @@ function question2() {
     </div>
   `;
 
-  if (emp) {
-    html += `
-      <div class="employee-card">
-        <h3>${emp.name}</h3>
-        <p>📧 ${emp.email}</p>
-        <p>🏢 ${emp.department}</p>
-        <p>💼 ${emp.position}</p>
-        <p>🛠️ ${emp.primarySkill}</p>
-        <p>💰 $${emp.salary.toLocaleString()}</p>
-        <p>📅 ${emp.yearsOfExperience} years experience</p>
-        <span class="badge">${emp.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
-      </div>
-    `;
-  }
+  html += `
+    <div class="employee-card">
+      <h3>${emp.name}</h3>
+      <p>📧 ${emp.email}</p>
+      <p>🏢 ${emp.department}</p>
+      <p>💼 ${emp.position}</p>
+      <p>🛠️ ${emp.primarySkill}</p>
+      <p>💰 $${emp.salary.toLocaleString()}</p>
+      <p>📅 ${emp.yearsOfExperience} years experience</p>
+      <span class="badge">${emp.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
+    </div>
+  `;
 
   grid.innerHTML = html;
   updateFilterInfo("Q2: indexOf()");
@@ -198,7 +188,6 @@ function question2() {
 
 // Q3: find()
 function question3() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const result = employees.find(function(emp) {
@@ -209,24 +198,22 @@ function question3() {
   html += `
     <div class="result-box">
       <h2>Q3: find()</h2>
-      <p>First Marketing employee: <strong>${result ? result.name : "None"}</strong></p>
+      <p>First Marketing employee: <strong>${result.name}</strong></p>
     </div>
   `;
 
-  if (result) {
-    html += `
-      <div class="employee-card">
-        <h3>${result.name}</h3>
-        <p>📧 ${result.email}</p>
-        <p>🏢 ${result.department}</p>
-        <p>💼 ${result.position}</p>
-        <p>🛠️ ${result.primarySkill}</p>
-        <p>💰 $${result.salary.toLocaleString()}</p>
-        <p>📅 ${result.yearsOfExperience} years experience</p>
-        <span class="badge">${result.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
-      </div>
-    `;
-  }
+  html += `
+    <div class="employee-card">
+      <h3>${result.name}</h3>
+      <p>📧 ${result.email}</p>
+      <p>🏢 ${result.department}</p>
+      <p>💼 ${result.position}</p>
+      <p>🛠️ ${result.primarySkill}</p>
+      <p>💰 $${result.salary.toLocaleString()}</p>
+      <p>📅 ${result.yearsOfExperience} years experience</p>
+      <span class="badge">${result.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
+    </div>
+  `;
 
   grid.innerHTML = html;
   updateFilterInfo("Q3: find()");
@@ -234,12 +221,13 @@ function question3() {
 
 // Q4: findIndex()
 function question4() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const index = employees.findIndex(function(emp) {
     return emp.id === 104;
   });
+
+  const emp = employees[index];
 
   let html = "";
   html += `
@@ -249,21 +237,18 @@ function question4() {
     </div>
   `;
 
-  if (index !== -1) {
-    const emp = employees[index];
-    html += `
-      <div class="employee-card">
-        <h3>${emp.name}</h3>
-        <p>📧 ${emp.email}</p>
-        <p>🏢 ${emp.department}</p>
-        <p>💼 ${emp.position}</p>
-        <p>🛠️ ${emp.primarySkill}</p>
-        <p>💰 $${emp.salary.toLocaleString()}</p>
-        <p>📅 ${emp.yearsOfExperience} years experience</p>
-        <span class="badge">${emp.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
-      </div>
-    `;
-  }
+  html += `
+    <div class="employee-card">
+      <h3>${emp.name}</h3>
+      <p>📧 ${emp.email}</p>
+      <p>🏢 ${emp.department}</p>
+      <p>💼 ${emp.position}</p>
+      <p>🛠️ ${emp.primarySkill}</p>
+      <p>💰 $${emp.salary.toLocaleString()}</p>
+      <p>📅 ${emp.yearsOfExperience} years experience</p>
+      <span class="badge">${emp.isRemote ? "🏠 Remote" : "🏢 Office"}</span>
+    </div>
+  `;
 
   grid.innerHTML = html;
   updateFilterInfo("Q4: findIndex()");
@@ -271,7 +256,6 @@ function question4() {
 
 // Q5: some()
 function question5() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const answer = employees.some(function(emp) {
@@ -314,7 +298,6 @@ function question5() {
 
 // Q6: every()
 function question6() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const engineering = employees.filter(function(emp) {
@@ -339,7 +322,6 @@ function question6() {
 
 // Q7: filter()
 function question7() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const result = employees.filter(function(emp) {
@@ -375,7 +357,6 @@ function question7() {
 
 // Q8: map()
 function question8() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const result = employees.map(function(emp) {
@@ -405,7 +386,6 @@ function question8() {
 
 // Q9: join()
 function question9() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const departments = employees.map(function(emp) {
@@ -432,7 +412,6 @@ function question9() {
 
 // Q10: concat()
 function question10() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const newHires = [
@@ -494,7 +473,6 @@ function question10() {
 
 // Bonus 1
 function bonus1() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const filtered = employees.filter(function(emp) {
@@ -534,7 +512,6 @@ function bonus1() {
 
 // Bonus 2
 function bonus2() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const remoteEmployees = employees.filter(function(emp) {
@@ -574,7 +551,6 @@ function bonus2() {
 
 // Bonus 3
 function bonus3() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const allSkills = employees.map(function(emp) {
@@ -599,7 +575,6 @@ function bonus3() {
 
 // Bonus 4
 function bonus4() {
-  clearGrid();
   const grid = document.getElementById("employeesGrid");
 
   const engineeringEmps = employees.filter(function(emp) {
@@ -642,5 +617,5 @@ function bonus4() {
   updateFilterInfo("Bonus 4");
 }
 
-// Start page
+
 showWelcome();
